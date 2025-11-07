@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import data from './data.js';
+import data from './data.js'; 
+import avatarImg from './assets/avatar_male.png'; 
 
 function EllipsisIcon() {
   return (
@@ -59,20 +60,21 @@ function UserCard({ timeframe, setTimeframe }) {
     <div className="bg-dark-blue rounded-2xl row-span-2">
       <div className="bg-blue-600 rounded-2xl p-8">
         <img 
-          src="/assets/avatar_male.png" 
+          src={avatarImg} 
           alt="Аватар користувача" 
           className="w-20 h-20 border-4 border-white rounded-full mb-6" 
         />
         <p className="text-pale-blue text-sm mb-1">Звіт на</p>
-        <h1 className="text-white text-4xl font-light">Іван Жуков</h1> 
+        <h1 className="text-white text-4xl font-light">Івана Жукова</h1>
       </div>
+      
       <div className="p-8">
         <ul className="flex flex-col space-y-4">
           <li>
-            <TimeframeButton period="daily" text="Щодення" /> 
+            <TimeframeButton period="daily" text="Щодня" />
           </li>
           <li>
-            <TimeframeButton period="weekly" text="Щотижня" /> 
+            <TimeframeButton period="weekly" text="Щотижня" />
           </li>
         </ul>
       </div>
@@ -90,7 +92,6 @@ export default function App() {
           <div className="md:col-span-1">
             <UserCard timeframe={timeframe} setTimeframe={setTimeframe} />
           </div>
-
           <div className="md:col-span-3">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {data.map((activity) => (
